@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "200517880835",
+    "project_id": "react-native-pseudo-shop",
+    "storage_bucket": "react-native-pseudo-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200517880835:android:37c8befcafcc1d34929236",
+        "android_client_info": {
+          "package_name": "com.pseudoshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "200517880835-kuih63rrihuicog60c2p31ogbt7q0hir.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pseudoshop",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "200517880835-siu2fgjc6km9vv1s8ekmoj9l1t8p9fnb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pseudoshop",
+            "certificate_hash": "915adc2e52fa8be27be807401254487a7c2d14f9"
+          }
+        },
+        {
+          "client_id": "200517880835-741j5t265pn7eh5gkn6g5830cam2ocqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArGCCYPA9Rpf1B2k3kGiwB3KKS-RoZD4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200517880835-741j5t265pn7eh5gkn6g5830cam2ocqa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "200517880835-oe3r92cv3381r93pkfvjh22p9bu360qf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.pseudoshop.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

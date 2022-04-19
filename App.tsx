@@ -41,7 +41,7 @@ const App = () => {
 
   GoogleSignin.configure({
     webClientId:
-      '200517880835-oe3r92cv3381r93pkfvjh22p9bu360qf.apps.googleusercontent.com'
+      '200517880835-741j5t265pn7eh5gkn6g5830cam2ocqa.apps.googleusercontent.com'
   });
 
   // Set an initializing state whilst Firebase connects
