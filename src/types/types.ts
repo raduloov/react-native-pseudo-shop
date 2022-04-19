@@ -15,3 +15,8 @@ export interface ItemProps extends ProductProps {
   quantity: number;
   totalPrice: number;
 }
+
+export interface UserProps {
+  uid: string;
+  favorites: ItemProps[];
+}

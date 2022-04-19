@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Alert, Image, ActivityIndicator } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Alert,
+  Image,
+  ActivityIndicator,
+  Platform
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { IconButton } from 'react-native-paper';
 import BottomSheet from '../components/UI/BottomSheet';
@@ -110,7 +117,7 @@ const ProductDetails = ({ route, navigation }: HomeStackNavProps<'Details'>) => 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: Platform.OS === 'ios' ? 50 : 10,
     backgroundColor: '#333'
   },
   headerButtons: {

@@ -25,8 +25,6 @@ const favsSlice = createSlice({
 
         const updatedFavs = [...state.favorites, payload];
 
-        console.log(updatedFavs);
-
         if (!existingItem) {
           state.favorites = updatedFavs;
         }

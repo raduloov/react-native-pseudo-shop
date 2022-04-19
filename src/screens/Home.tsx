@@ -6,7 +6,8 @@ import {
   RefreshControl,
   View,
   Pressable,
-  Text
+  Text,
+  Platform
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
@@ -131,12 +132,14 @@ const Home = ({ navigation }: HomeStackNavProps<'Home'>) => {
       style={styles.container}
     >
       <View style={styles.header}>
-        <IconButton
-          icon={props => <FeatherIcon name="menu" {...props} />}
-          onPress={() => {
-            navigation.dispatch(DrawerActions.openDrawer());
-          }}
-        />
+        <View style={{ zIndex: 10 }}>
+          <IconButton
+            icon={props => <FeatherIcon name="menu" {...props} />}
+            onPress={() => {
+              navigation.dispatch(DrawerActions.openDrawer());
+            }}
+          />
+        </View>
         <View style={styles.logo}>
           <LogoIcon height={50} width={50} color={darkMode ? '#fff' : '#000'} />
         </View>
@@ -155,7 +158,7 @@ const Home = ({ navigation }: HomeStackNavProps<'Home'>) => {
             color={darkMode ? '#fff' : '#000'}
           />
           <View style={styles.cartQuantity}>
-            <Text style={{ fontSize: 18, fontWeight: '500' }}>
+            <Text style={{ fontSize: 18, fontWeight: '500', color: '#000' }}>
               {cartItems.length}
             </Text>
           </View>
@@ -198,7 +201,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingBottom: 10
+    paddingVertical: 10
   },
   cartButton: {
     flexDirection: 'row',
@@ -223,12 +226,11 @@ const styles = StyleSheet.create({
   logo: {
     ...StyleSheet.absoluteFillObject,
     justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: -1
+    alignItems: 'center'
   },
   container: {
     flex: 1,
-    paddingTop: 50
+    paddingTop: Platform.OS === 'ios' ? 50 : 10
   },
   emptyContainer: {
     flex: 1,

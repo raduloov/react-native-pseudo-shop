@@ -4,8 +4,8 @@ import {
   Text,
   FlatList,
   StyleSheet,
-  SafeAreaView,
-  Dimensions
+  Dimensions,
+  Platform
 } from 'react-native';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
@@ -74,7 +74,7 @@ const Favorites = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    paddingTop: Platform.OS === 'ios' ? 50 : 10,
     justifyContent: 'center'
   },
   title: {

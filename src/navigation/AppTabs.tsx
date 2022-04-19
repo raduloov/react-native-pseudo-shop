@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
@@ -21,6 +21,7 @@ const AppTabs = () => {
         tabBarStyle: {
           backgroundColor: darkMode ? '#3c3c3c' : '#fff',
           alignItems: 'center',
+          height: 80,
           ...styles.shadow
         }
       }}
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   tab: {
     justifyContent: 'center',
     alignItems: 'center',
-    top: 10
+    top: Platform.OS === 'ios' ? 10 : 0
   },
   shadow: {
     shadowColor: '#7f5df0',

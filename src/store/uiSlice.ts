@@ -11,6 +11,8 @@ const uiSlice = createSlice({
       state.category = payload;
     },
     setTheme(state, { payload }) {
+      console.log('mode:', payload);
+
       if (payload === 'light') {
         state.darkMode = false;
       } else {

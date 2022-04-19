@@ -1,4 +1,12 @@
-import { View, Text, FlatList, StyleSheet, TextInput, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TextInput,
+  Alert,
+  Platform
+} from 'react-native';
 import React from 'react';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { Button, IconButton } from 'react-native-paper';
@@ -24,18 +32,20 @@ const Cart = ({ navigation }: HomeStackNavProps<'Cart'>) => {
     >
       <View>
         <View>
-          <IconButton
-            icon={props => <FontAwesome5Icon name="chevron-left" {...props} />}
-            onPress={() => {
-              navigation.goBack();
-            }}
-          />
+          <View style={{ zIndex: 10 }}>
+            <IconButton
+              icon={props => <FontAwesome5Icon name="chevron-left" {...props} />}
+              onPress={() => {
+                navigation.goBack();
+              }}
+            />
+          </View>
           <View
             style={{
               ...StyleSheet.absoluteFillObject,
               justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: -1
+              alignItems: 'center'
+              // zIndex: -1
             }}
           >
             <Text style={{ fontSize: 20, color: darkMode ? '#fff' : '#000' }}>
@@ -101,7 +111,7 @@ const Cart = ({ navigation }: HomeStackNavProps<'Cart'>) => {
         <View style={[styles.bagInfo, { borderBottomWidth: 0 }]}>
           <Text style={styles.infoText}>Bag Total</Text>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Text style={{ marginRight: 10, fontSize: 16 }}>
+            <Text style={{ marginRight: 10, fontSize: 16, color: '#000' }}>
               ({items.length} items)
             </Text>
             <Text style={styles.priceText}>${totalAmount.toFixed(2)}</Text>
@@ -128,7 +138,7 @@ const Cart = ({ navigation }: HomeStackNavProps<'Cart'>) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: Platform.OS === 'ios' ? 50 : 10,
     paddingBottom: 10,
     justifyContent: 'space-between'
   },
@@ -158,11 +168,13 @@ const styles = StyleSheet.create({
   },
   infoText: {
     fontSize: 18,
-    fontWeight: '500'
+    fontWeight: '500',
+    color: '#000'
   },
   priceText: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#000'
   }
 });
 

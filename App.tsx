@@ -16,7 +16,7 @@ import { uiActions } from './src/store/uiSlice';
 LogBox.ignoreAllLogs();
 
 const toastConfig = {
-  success: (props: any) => (
+  success: (props: unknown) => (
     <SuccessToast
       {...props}
       text1Style={{ fontSize: 18 }}

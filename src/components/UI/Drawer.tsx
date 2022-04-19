@@ -35,8 +35,8 @@ const DrawerButton = ({ category, icon, onPress }: DrawerButtonProps) => {
         }
       ]}
     >
-      {icon ? <FontAwesomeIcon name={icon} size={25} /> : <View />}
-      <Text style={{ fontSize: 20 }}>{category}</Text>
+      {icon ? <FontAwesomeIcon name={icon} size={25} color="#000" /> : <View />}
+      <Text style={{ fontSize: 20, color: '#000' }}>{category}</Text>
     </Pressable>
   );
 };
@@ -65,6 +65,8 @@ const Drawer = (props: any) => {
   const signOutHandler = async () => {
     await auth().signOut();
   };
+
+  console.log(darkMode);
 
   return (
     <View style={{ flex: 1 }}>
@@ -124,8 +126,8 @@ const Drawer = (props: any) => {
               />
             )}
             <View>
-              <Text style={{ fontSize: 18 }}>Welcome,</Text>
-              <Text style={{ fontSize: 22, fontWeight: '500' }}>
+              <Text style={{ fontSize: 18, color: '#000' }}>Welcome,</Text>
+              <Text style={{ fontSize: 22, fontWeight: '500', color: '#000' }}>
                 {userInfo?.displayName}
               </Text>
             </View>
@@ -165,8 +167,8 @@ const Drawer = (props: any) => {
           }
         ]}
       >
-        <FontAwesomeIcon name="sign-out" size={25} />
-        <Text style={{ fontSize: 18, marginLeft: 10 }}>Logout</Text>
+        <FontAwesomeIcon name="sign-out" size={25} color="#000" />
+        <Text style={{ fontSize: 18, marginLeft: 10, color: '#000' }}>Logout</Text>
       </Pressable>
     </View>
   );
