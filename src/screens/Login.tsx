@@ -13,7 +13,6 @@ const LoginScreen = () => {
 
   const { darkMode } = useSelector((state: RootStateOrAny) => state.ui);
 
-  // TODO: Manual install google auth for Android
   const signInWithGoogle = async () => {
     setLoading(true);
     try {
@@ -59,7 +58,15 @@ const LoginScreen = () => {
         >
           Log In With Google
         </Button>
-        <Button mode="contained" icon="apple" color="#000" style={{ margin: 5 }}>
+        <Button
+          onPress={() =>
+            Alert.alert('Sorry!', 'This is feature is currently not available.')
+          }
+          mode="contained"
+          icon="apple"
+          color="#000"
+          style={{ margin: 5 }}
+        >
           Log In With Apple
         </Button>
       </View>

@@ -12,6 +12,7 @@ import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { Button, IconButton } from 'react-native-paper';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import LinearGradient from 'react-native-linear-gradient';
+import notifee from '@notifee/react-native';
 
 import { HomeStackNavProps } from '../types/HomeParamList';
 import CartItem from '../components/UI/CartItem';
@@ -22,6 +23,29 @@ const Cart = ({ navigation }: HomeStackNavProps<'Cart'>) => {
   const { darkMode } = useSelector((state: RootStateOrAny) => state.ui);
 
   const dispatch = useDispatch();
+
+  const displayLocalNotification = async () => {
+    // Create a channel
+    const channelId = await notifee.createChannel({
+      id: 'default',
+      name: 'Default Channel'
+    });
+
+    // Display a notification
+    await notifee.displayNotification({
+      title: '🌴 Pseudo Shop',
+      body: 'Thank you for using Pseudo Shop! ❤️',
+      android: {
+        channelId
+      }
+    });
+  };
+
+  const onCheckout = () => {
+    displayLocalNotification();
+    dispatch(cartActions.emptyCart());
+    Alert.alert('Thank you for using Pseudo Shop! 🌴🚀');
+  };
 
   return (
     <LinearGradient
@@ -45,7 +69,6 @@ const Cart = ({ navigation }: HomeStackNavProps<'Cart'>) => {
               ...StyleSheet.absoluteFillObject,
               justifyContent: 'center',
               alignItems: 'center'
-              // zIndex: -1
             }}
           >
             <Text style={{ fontSize: 20, color: darkMode ? '#fff' : '#000' }}>
@@ -124,10 +147,7 @@ const Cart = ({ navigation }: HomeStackNavProps<'Cart'>) => {
         mode="contained"
         color={darkMode ? '#d1b3ff' : '#6800ff'}
         disabled={!items.length}
-        onPress={() => {
-          dispatch(cartActions.emptyCart());
-          Alert.alert('Thank you for using Pseudo Shop! 🌴🚀');
-        }}
+        onPress={onCheckout}
       >
         Proceed To Checkout
       </Button>

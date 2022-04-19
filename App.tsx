@@ -8,6 +8,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import Toast, { SuccessToast } from 'react-native-toast-message';
 import { useDispatch } from 'react-redux';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import notifee, { AuthorizationStatus } from '@notifee/react-native';
 
 import AuthStack from './src/navigation/AuthStack';
 import AppTabs from './src/navigation/AppTabs';
@@ -92,6 +93,20 @@ const App = () => {
       });
     };
   }, [user]);
+
+  useEffect(() => {
+    const requestUserPermission = async () => {
+      const settings = await notifee.requestPermission();
+
+      if (settings.authorizationStatus >= AuthorizationStatus.AUTHORIZED) {
+        console.log('Permission settings:', settings);
+      } else {
+        console.log('User declined permissions');
+      }
+    };
+
+    requestUserPermission();
+  }, []);
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
